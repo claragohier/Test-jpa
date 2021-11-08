@@ -3,8 +3,12 @@ package fr.digi;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+
+import java.util.Set;
+
 import javax.persistence.Column;
 
 @Entity
@@ -21,6 +25,8 @@ public class Livre {
 	@Column(name="TITRE", length=50, nullable=false)
 	private String titre;
 	
+	@ManyToMany(mappedBy="livres")
+	private Set<Emprunt> emprunts;
 	
 	public Livre() {
 	}
